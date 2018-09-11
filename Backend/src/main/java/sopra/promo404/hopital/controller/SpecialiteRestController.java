@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.promo404.hopital.model.Specialite;
+import sopra.promo404.hopital.model.Views;
 import sopra.promo404.hopital.repository.IRepoSpecialite;
 
 
