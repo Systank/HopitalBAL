@@ -12,10 +12,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Patient {
 	@Id
 	@GeneratedValue
+	@JsonView
 	private Long id;
 	@Version
 	private int version;
