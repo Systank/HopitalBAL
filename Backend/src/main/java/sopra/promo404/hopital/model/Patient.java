@@ -12,6 +12,13 @@ public class Patient {
 	private Long id;
 	@Column(length=100)
 	private String nom;
+	@Column(length=100)
+	private String prénom;
+	@Column(length=20)
+	private String numeroSecuriteSocial;
+	@Column(length=20)
+	private Civilite civilite;
+	
 	
 	public Patient() {
 		super();
@@ -32,6 +39,29 @@ public class Patient {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
+
+	public String getPrénom() {
+		return prénom;
+	}
+
+	public void setPrénom(String prénom) {
+		this.prénom = prénom;
+	}
+
+	public String getNumeroSecuriteSocial() {
+		return numeroSecuriteSocial;
+	}
+
+	public void setNumeroSecuriteSocial(String numeroSecuriteSocial) {
+		this.numeroSecuriteSocial = numeroSecuriteSocial;
+	}
+
+	public Civilite getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
+	}
 	
 }
