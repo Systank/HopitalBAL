@@ -16,48 +16,50 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.promo404.hopital.model.Secretaire;
+import sopra.promo404.hopital.model.FileAttente;
 import sopra.promo404.hopital.model.Views;
-import sopra.promo404.hopital.repository.IRepoSecretaire;
+import sopra.promo404.hopital.repository.IRepoFileAttente;
+
+
 
 @Controller
-@RequestMapping("/secretaire")
-public class SecretaireRestController {
+@RequestMapping("/fileAttente")
+public class FileAttenteRestController {
 	
 	@Autowired
-	private IRepoSecretaire repoSecretaire;
+	private IRepoFileAttente repoFileAttente;
 	
 	
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewSecretaire.class)
-	public List<Secretaire> list() {
-		return repoSecretaire.findAll();
+	@JsonView(Views.ViewFileAttente.class)
+	public List<FileAttente> list() {
+		return repoFileAttente.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewSecretaireWithFileAttente.class)
-	public Optional<Secretaire> detail(@PathVariable Long id) {
-		return repoSecretaire.findById(id);
+	@JsonView(Views.ViewFileAttenteWithPatient.class)
+	public Optional<FileAttente> detail(@PathVariable Long id) {
+		return repoFileAttente.findById(id);
 	}
 
 	@PostMapping("")
 	@ResponseBody
 	@JsonView(Views.ViewSecretaire.class)
-	public Secretaire add(@RequestBody Secretaire secretaire) {
-		repoSecretaire.save(secretaire);
+	public FileAttente add(@RequestBody FileAttente fileAttente) {
+		repoFileAttente.save(fileAttente);
 
-		return secretaire;
+		return fileAttente;
 	}
 
 	@PutMapping("/{id}")
 	@ResponseBody
 	@JsonView(Views.ViewSecretaire.class)
-	public Secretaire edit(@RequestBody Secretaire secretaire, @PathVariable Long id) {
-		repoSecretaire.save(secretaire);
+	public FileAttente edit(@RequestBody FileAttente fileAttente, @PathVariable Long id) {
+		repoFileAttente.save(fileAttente);
 
-		return (Secretaire) repoSecretaire.findById(id).get();
+		return (FileAttente) repoFileAttente.findById(id).get();
 	}
 
 	
@@ -65,8 +67,7 @@ public class SecretaireRestController {
 	@DeleteMapping("/{id}")
 	@JsonView(Views.ViewSecretaire.class)
 	public void delete(@PathVariable Long id) {
-		repoSecretaire.deleteById(id);
+		repoFileAttente.deleteById(id);
 	}
-	
 
 }
