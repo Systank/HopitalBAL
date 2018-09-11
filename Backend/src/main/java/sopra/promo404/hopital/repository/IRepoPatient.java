@@ -11,7 +11,7 @@ import sopra.promo404.hopital.model.Patient;
 
 public interface IRepoPatient extends JpaRepository<Patient, Long> {
 	
-	@Query("select p from Patient p left join fetch p.consultation f where p.id = :id")
+	@Query("select p from Patient p left join fetch p.consultations f where p.id = :id")
 	Patient findByIdWithConsultations(@Param("id") Long id);
 
 }

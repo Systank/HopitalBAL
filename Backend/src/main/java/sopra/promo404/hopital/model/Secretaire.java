@@ -1,5 +1,7 @@
 package sopra.promo404.hopital.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,9 +28,8 @@ public class Secretaire {
 	private Civilite civilite;
 	@Column(name="enPause")
 	private Boolean enPause;
-	@Column(name="FileAttente")
-	@OneToMany(mappedBy="Secretaire")
-	private FileAttente fileAttente;
+	@OneToMany(mappedBy="secretaire")
+	private List<FileAttente> fileAttente;
 	
 	public Secretaire() {
 		super();

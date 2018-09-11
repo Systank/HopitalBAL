@@ -29,7 +29,7 @@ public class Consultation {
 	private Patient patient;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="specialite_id")
-	private Specialite scpecialite;
+	private Specialite specialite;
 	
 	public Consultation() {
 		super();
@@ -75,12 +75,12 @@ public class Consultation {
 		this.patient = patient;
 	}
 
-	public Specialite getScpecialite() {
-		return scpecialite;
+	public Specialite getSpecialite() {
+		return specialite;
 	}
 
-	public void setScpecialite(Specialite scpecialite) {
-		this.scpecialite = scpecialite;
+	public void setSpecialite(Specialite specialite) {
+		this.specialite = specialite;
 	}
 	
 	
