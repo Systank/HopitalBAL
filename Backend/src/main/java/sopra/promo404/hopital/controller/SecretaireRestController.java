@@ -39,7 +39,7 @@ public class SecretaireRestController {
 	@ResponseBody
 	@JsonView(Views.ViewSecretaireWithFileAttente.class)
 	public Optional<Secretaire> detail(@PathVariable Long id) {
-		return repoSecretaire.findById(id);
+		return repoSecretaire.findAllSecretaireByIdWithFileAttente(id);
 	}
 
 	@PostMapping("")

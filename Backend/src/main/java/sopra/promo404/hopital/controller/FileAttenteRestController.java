@@ -40,10 +40,11 @@ public class FileAttenteRestController {
 	@GetMapping("/{id}")
 	@ResponseBody
 	@JsonView(Views.ViewFileAttenteWithPatient.class)
-	public Optional<FileAttente> detail(@PathVariable Long id) {
-		return repoFileAttente.findById(id);
+	public FileAttente detail(@PathVariable Long id) {
+		return repoFileAttente.findFileAttenteByIdWithPatient(id);
 	}
 
+	
 	@PostMapping("")
 	@ResponseBody
 	@JsonView(Views.ViewSecretaire.class)
