@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name="Secretaire")
@@ -15,6 +16,8 @@ public class Secretaire {
 	@GeneratedValue
 	@Column(name="Secretaire_id")
 	private Long id;
+	@Version
+	private int version;
 	@Column(name="Nom")
 	private String nom;
 	@Column(name="Prenom")
