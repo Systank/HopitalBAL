@@ -14,7 +14,6 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name="FileAttente")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class FileAttente {
 	
 	@Id
