@@ -6,6 +6,6 @@ import sopra.promo404.hopital.model.Patient;
 
 
 
-public interface IRepositoryPatient extends JpaRepository<Patient, Long> {
+public interface IRepoPatient extends JpaRepository<Patient, Long> {
 
 }

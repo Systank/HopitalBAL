@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import sopra.promo404.hopital.model.Civilite;
 import sopra.promo404.hopital.model.Patient;
-import sopra.promo404.hopital.repository.IRepositoryPatient;
+import sopra.promo404.hopital.repository.IRepoPatient;
 
 
 @RunWith(SpringRunner.class)
@@ -15,7 +16,7 @@ import sopra.promo404.hopital.repository.IRepositoryPatient;
 public class HopitalApplicationTests {
 	
 	@Autowired
-	private IRepositoryPatient patientRepo;
+	private IRepoPatient patientRepo;
 
 	@Test
 	public void contextLoads() {
@@ -23,6 +24,7 @@ public class HopitalApplicationTests {
 		Patient patient1 = new Patient();
 		
 		patient1.setNom("JOURDAN");
+		patient1.setCivilite(Civilite.MLLE);
 		patientRepo.save(patient1);
 		
 	}
