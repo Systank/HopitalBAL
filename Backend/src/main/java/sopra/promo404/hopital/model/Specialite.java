@@ -1,10 +1,14 @@
 package sopra.promo404.hopital.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -27,6 +31,8 @@ public class Specialite {
 	@JoinColumn(name="medecin_id")
 	private Medecin medecin;
 
+	@OneToMany(mappedBy="specialite", fetch=FetchType.EAGER)
+	private List<Consultation> consultations;
 	
 	public Specialite() {
 		super();
@@ -70,7 +76,7 @@ public class Specialite {
 	}
 
 	public void setTarif(Float tarif) {
-		this.tarif = tarif;
+		this.tarif = tarif; 
 	}
 
 	public Medecin getMedecin() {
@@ -79,6 +85,14 @@ public class Specialite {
 
 	public void setMedecin(Medecin medecin) {
 		this.medecin = medecin;
+	}
+
+	public List<Consultation> getConsultations() {
+		return consultations;
+	}
+
+	public void setConsultations(List<Consultation> consultations) {
+		this.consultations = consultations;
 	}
 	
 	

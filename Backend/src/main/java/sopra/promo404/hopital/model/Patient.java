@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
@@ -27,6 +29,9 @@ public class Patient {
 	private Civilite civilite;
 	@OneToMany(mappedBy="patient", fetch=FetchType.EAGER)
 	private List<Consultation> consultations;
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="fileAttente_id")
+	private FileAttente fileAttente;
 	
 	public Patient() {
 		super();
@@ -79,6 +84,5 @@ public class Patient {
 	public void setConsultations(List<Consultation> consultations) {
 		this.consultations = consultations;
 	}
-	
 	
 }

@@ -7,9 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -40,6 +43,10 @@ public class Medecin {
 	
 	@OneToMany(mappedBy="medecin")
 	private List<Specialite> specialites = new ArrayList<>();
+	
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="salle_id")
+	private Salle salle;
 	
 	
 	public Medecin() {
@@ -122,6 +129,14 @@ public class Medecin {
 	public void setConventione(Convention conventione) {
 		this.conventione = conventione;
 	}
-	
 
+	public Salle getSalle() {
+		return salle;
+	}
+
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+	
+	
 }

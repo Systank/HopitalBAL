@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Salle {
@@ -19,6 +21,9 @@ public class Salle {
 	private String nom;
 	@OneToMany(mappedBy = "salle", fetch=FetchType.EAGER)
 	private List<Consultation> consulations = new ArrayList<>();
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="medecin_id")
+	private Medecin medecin;
 	
 
 	public Salle() {
@@ -48,6 +53,14 @@ public class Salle {
 
 	public void setConsulations(List<Consultation> consulations) {
 		this.consulations = consulations;
+	}
+
+	public Medecin getMedecin() {
+		return medecin;
+	}
+
+	public void setMedecin(Medecin medecin) {
+		this.medecin = medecin;
 	}
 	
 	

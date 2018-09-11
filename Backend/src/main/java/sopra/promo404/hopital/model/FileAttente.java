@@ -30,7 +30,7 @@ public class FileAttente {
 	@JoinColumn(name="Secretaire_id")
 	private Secretaire secretaire;
 	@Column(name="Patient")
-	@OneToMany(mappedBy="FileAttente")
+	@OneToMany(mappedBy="fileAttente")
 	private Patient patient;
 	@Column(name="Medecin")
 	@ManyToOne

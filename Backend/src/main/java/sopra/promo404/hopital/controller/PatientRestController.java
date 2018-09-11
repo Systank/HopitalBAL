@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.promo404.hopital.model.Views;
+import sopra.promo404.hopital.exception.PatientValidationException;
 import sopra.promo404.hopital.model.Patient;
 import sopra.promo404.hopital.repository.IRepoPatient;
 
@@ -31,21 +32,21 @@ public class PatientRestController {
 
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewPatient.class)
 	public List<Patient> list() {
 		return patientRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView()
+	@JsonView(Views.ViewPatientWithConsultation.class)
 	public Patient detail(@PathVariable Long id) {
-		return patientRepo.findByIdWithFormateurs(id);
+		return patientRepo.findByIdWithConsultations(id);
 	}
 
 	@PostMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewPatient.class)
 	public Patient add(@Valid @RequestBody Patient patient, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new PatientValidationException("Nom oublié");
@@ -58,7 +59,7 @@ public class PatientRestController {
 
 	@PutMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewPatient.class)
 	public Patient edit(@RequestBody Patient patient, @PathVariable Long id) {
 		patientRepo.save(patient);
 
@@ -66,7 +67,7 @@ public class PatientRestController {
 	}
 
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewMatiere.class)
+	@JsonView(Views.ViewPatient.class)
 	public void delete(@PathVariable Long id) {
 		patientRepo.deleteById(id);
 	}
