@@ -35,10 +35,12 @@ public class SecretaireRestController {
 		return repoSecretaire.findAll();
 	}
 
+
+
 	@GetMapping("/{id}")
 	@ResponseBody
 	@JsonView(Views.ViewSecretaireWithFileAttente.class)
-	public Optional<Secretaire> detail(@PathVariable Long id) {
+	public Secretaire detail(@PathVariable Long id) {
 		return repoSecretaire.findAllSecretaireByIdWithFileAttente(id);
 	}
 
