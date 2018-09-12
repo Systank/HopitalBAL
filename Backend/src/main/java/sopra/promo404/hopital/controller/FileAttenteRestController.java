@@ -32,7 +32,7 @@ public class FileAttenteRestController {
 	
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewFileAttenteWithPatient.class)
+	@JsonView(Views.ViewFileAttente.class)
 	public List<FileAttente> list() {
 		return repoFileAttente.findAll();
 	}

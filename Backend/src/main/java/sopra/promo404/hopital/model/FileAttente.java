@@ -35,7 +35,7 @@ public class FileAttente {
 	@JsonView(Views.ViewFileAttente.class)
 	private Secretaire secretaire;
 	@OneToMany(mappedBy="fileAttente")
-	@JsonView(Views.ViewFileAttenteWithPatient.class)
+	@JsonView(Views.ViewFileAttente.class)
 	private List<Patient> patient;
 	@ManyToOne
 	@JoinColumn(name="Medecin_id")
