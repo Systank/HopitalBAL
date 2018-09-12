@@ -1,0 +1,12 @@
+#full {
+	background-image: url("https://i.pinimg.com/originals/39/b8/05/39b8054b808bee0964dc96b8414e9761.jpg");
+	background-color: #cccccc;
+}
+
+#footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
