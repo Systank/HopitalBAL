@@ -8,12 +8,6 @@ public class Views {
 
 	public static class ViewMedecin extends ViewCommon {
 	}
-
-	public static class ViewMedecinWithFileAttente extends ViewMedecin {
-	}
-	
-	public static class ViewMedecinWithSalle extends ViewMedecin {
-	}
 	
 	public static class ViewMedecinWithSpecialite extends ViewMedecin {
 	}
@@ -22,9 +16,6 @@ public class Views {
 //	
 
 	public static class ViewPatient extends ViewCommon {
-	}
-
-	public static class ViewPatientWithFileAttente extends ViewPatient {
 	}
 	
 	public static class ViewPatientWithConsultation extends ViewPatient {
@@ -60,6 +51,11 @@ public class Views {
 	
 	public static class ViewSalle extends ViewCommon {
 	}
+	
+	public static class ViewSalleWithMedecin extends ViewCommon {
+	}
+	
+
 //
 //
 

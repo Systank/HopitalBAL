@@ -13,6 +13,6 @@ public interface IRepoMedecin extends JpaRepository<Medecin, Long> {
 	@Query("select distinct m from Medecin m left join fetch m.specialites s where m.id= :id")
 	Medecin findMedecinByIdWithSpecialite(@Param("id") Long id);
 	
-	@Query("select m from Medecin m")
+	@Query("select m from Medecin m left outer join fetch m.salle")
 	List<Medecin> findAllMedecin();
 }

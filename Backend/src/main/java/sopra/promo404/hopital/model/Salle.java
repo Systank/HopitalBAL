@@ -25,10 +25,14 @@ public class Salle {
 	@Column(length=100)
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	
+	@JsonView(Views.ViewSalle.class)
 	@OneToMany(mappedBy = "salle", fetch=FetchType.EAGER)
 	private List<Consultation> consulations = new ArrayList<>();
-	@OneToOne(fetch=FetchType.LAZY)
+	
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="medecin_id")
+	@JsonView(Views.ViewSalleWithMedecin.class)
 	private Medecin medecin;
 	
 

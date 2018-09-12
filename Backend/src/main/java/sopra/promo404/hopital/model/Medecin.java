@@ -47,13 +47,16 @@ public class Medecin {
 	private Boolean cmu;
 	
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private Convention conventione;
 	
 	@OneToMany(mappedBy="medecin")
+	@JsonView(Views.ViewMedecinWithSpecialite.class)
 	private List<Specialite> specialites = new ArrayList<>();
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="salle_id")
+	@JsonView(Views.ViewMedecin.class)
 	private Salle salle;
 	
 	

@@ -34,12 +34,12 @@ public class SalleRestController {
 	@ResponseBody
 	@JsonView(Views.ViewSalle.class)
 	public List<Salle> list() {
-		return salleRepo.findAll();
+		return salleRepo.findAllSalle();
 	}
 
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView()
+	@JsonView(Views.ViewSalleWithMedecin.class)
 	public Salle detail(@PathVariable Long id) {
 		return salleRepo.findByIdWithMedecin(id);
 	}

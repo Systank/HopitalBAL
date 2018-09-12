@@ -37,9 +37,11 @@ public class Patient {
 	@Column(length=20)
 	@JsonView(Views.ViewCommon.class)
 	private Civilite civilite;
+	
 	@OneToMany(mappedBy="patient", fetch=FetchType.EAGER)
 	@JsonView(Views.ViewPatientWithConsultation.class)
 	private List<Consultation> consultations;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="fileAttente_id")
 	@JsonView(Views.ViewPatient.class)

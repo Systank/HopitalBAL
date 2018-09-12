@@ -34,7 +34,7 @@ public class PatientRestController {
 	@ResponseBody
 	@JsonView(Views.ViewPatient.class)
 	public List<Patient> list() {
-		return patientRepo.findAll();
+		return patientRepo.findAllPatient();
 	}
 
 	@GetMapping("/{id}")

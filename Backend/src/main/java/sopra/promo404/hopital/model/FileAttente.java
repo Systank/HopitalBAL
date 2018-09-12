@@ -15,6 +15,7 @@ import javax.persistence.Version;
 
 import sopra.promo404.hopital.model.Views;
 import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="FileAttente")
 public class FileAttente {

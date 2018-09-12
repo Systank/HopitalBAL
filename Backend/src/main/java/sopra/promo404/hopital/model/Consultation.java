@@ -27,14 +27,17 @@ public class Consultation {
 	@Temporal(TemporalType.DATE)
 	@JsonView(Views.ViewCommon.class)
 	private Date dateVisiteFin;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="salle_id")
 	@JsonView(Views.ViewConsultation.class)
 	private Salle salle;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="patient_id")
 	@JsonView(Views.ViewConsultation.class)
 	private Patient patient;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="specialite_id")
 	@JsonView(Views.ViewConsultationWithSpecialite.class)
