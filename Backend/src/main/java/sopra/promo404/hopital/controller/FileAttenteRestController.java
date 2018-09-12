@@ -32,14 +32,14 @@ public class FileAttenteRestController {
 	
 	@GetMapping("")
 	@ResponseBody
-	@JsonView(Views.ViewFileAttente.class)
+	@JsonView(Views.ViewFileAttenteWithPatient.class)
 	public List<FileAttente> list() {
 		return repoFileAttente.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ResponseBody
-	@JsonView(Views.ViewFileAttenteWithPatient.class)
+	@JsonView(Views.ViewFileAttenteWithMedecin.class)
 	public FileAttente detail(@PathVariable Long id) {
 		return repoFileAttente.findFileAttenteByIdWithPatient(id);
 	}

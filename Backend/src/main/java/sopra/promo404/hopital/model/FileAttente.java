@@ -12,10 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 import sopra.promo404.hopital.model.Views;
-
+import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table(name="FileAttente")
 public class FileAttente {
@@ -34,11 +32,14 @@ public class FileAttente {
 	private int capacite;
 	@ManyToOne
 	@JoinColumn(name="Secretaire_id")
+	@JsonView(Views.ViewFileAttente.class)
 	private Secretaire secretaire;
 	@OneToMany(mappedBy="fileAttente")
+	@JsonView(Views.ViewFileAttenteWithPatient.class)
 	private List<Patient> patient;
 	@ManyToOne
 	@JoinColumn(name="Medecin_id")
+	@JsonView(Views.ViewFileAttenteWithMedecin.class)
 	private Medecin medecin;
 
 }

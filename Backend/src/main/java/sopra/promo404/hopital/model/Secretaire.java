@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="Secretaire")
 public class Secretaire {
@@ -17,18 +19,25 @@ public class Secretaire {
 	@Id
 	@GeneratedValue
 	@Column(name="Secretaire_id")
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name="Nom")
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(name="Prenom")
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
 	@Column(name="Civilite")
+	@JsonView(Views.ViewCommon.class)
 	private Civilite civilite;
 	@Column(name="enPause")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean enPause;
 	@OneToMany(mappedBy="secretaire")
+	@JsonView(Views.ViewSecretaire.class)
 	private List<FileAttente> fileAttente;
 	
 	public Secretaire() {
