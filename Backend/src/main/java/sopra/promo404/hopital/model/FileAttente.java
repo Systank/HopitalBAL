@@ -43,5 +43,89 @@ public class FileAttente {
 	@JoinColumn(name="Medecin_id")
 	@JsonView(Views.ViewFileAttenteWithMedecin.class)
 	private Medecin medecin;
+	
+	
+	public FileAttente() {
+		super();
+	}
+	
+	
 
+
+	public FileAttente(Long id, int version, int capacite, Secretaire secretaire, List<Patient> patient,
+			Medecin medecin) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.capacite = capacite;
+		this.secretaire = secretaire;
+		this.patient = patient;
+		this.medecin = medecin;
+	}
+
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public int getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+
+	public int getCapacite() {
+		return capacite;
+	}
+
+
+	public void setCapacite(int capacite) {
+		this.capacite = capacite;
+	}
+
+
+	public Secretaire getSecretaire() {
+		return secretaire;
+	}
+
+
+	public void setSecretaire(Secretaire secretaire) {
+		this.secretaire = secretaire;
+	}
+
+
+	public List<Patient> getPatient() {
+		return patient;
+	}
+
+
+	public void setPatient(List<Patient> patient) {
+		this.patient = patient;
+	}
+
+
+	public Medecin getMedecin() {
+		return medecin;
+	}
+
+
+	public void setMedecin(Medecin medecin) {
+		this.medecin = medecin;
+	}
+
+	
+	
 }
+

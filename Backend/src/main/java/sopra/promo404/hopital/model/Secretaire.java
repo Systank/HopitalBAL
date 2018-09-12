@@ -45,6 +45,20 @@ public class Secretaire {
 		super();
 	}
 
+	
+	public Secretaire(Long id, int version, String nom, String prenom, Civilite civilite, Boolean enPause,
+			List<FileAttente> fileAttente) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.civilite = civilite;
+		this.enPause = enPause;
+		this.fileAttente = fileAttente;
+	}
+
+
 	public Long getId() {
 		return id;
 	}
