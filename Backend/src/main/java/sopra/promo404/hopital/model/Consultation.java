@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -21,10 +22,14 @@ public class Consultation {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
-	@Temporal(TemporalType.DATE)
+	@Version
+	@JsonView(Views.ViewCommon.class)
+	private int version;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	@JsonView(Views.ViewCommon.class)
 	private Date dateVisiteArrivee;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@JsonView(Views.ViewCommon.class)
 	private Date dateVisiteFin;
 	
@@ -93,6 +98,14 @@ public class Consultation {
 
 	public void setSpecialite(Specialite specialite) {
 		this.specialite = specialite;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 	
 	

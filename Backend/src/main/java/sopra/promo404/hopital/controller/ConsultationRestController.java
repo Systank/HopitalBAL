@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -17,6 +19,8 @@ import sopra.promo404.hopital.model.Consultation;
 import sopra.promo404.hopital.model.Views;
 import sopra.promo404.hopital.repository.IRepoConsultation;
 
+@RestController
+@RequestMapping("/consultation")
 public class ConsultationRestController {
 
 	@Autowired
