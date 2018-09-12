@@ -34,7 +34,6 @@ public class Patient {
 	@Column(length=20)
 	@JsonView(Views.ViewCommon.class)
 	private String numeroSecuriteSocial;
-	@Column(length=20)
 	@JsonView(Views.ViewCommon.class)
 	private Civilite civilite;
 	
