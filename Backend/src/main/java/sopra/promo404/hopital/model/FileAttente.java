@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -30,14 +31,14 @@ public class FileAttente {
 	@Column(name="Capacite")
 	@JsonView(Views.ViewCommon.class)
 	private int capacite;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="Secretaire_id")
 	@JsonView(Views.ViewFileAttente.class)
 	private Secretaire secretaire;
-	@OneToMany(mappedBy="fileAttente")
+	@OneToMany(mappedBy="fileAttente", fetch=FetchType.EAGER)
 	@JsonView(Views.ViewFileAttente.class)
 	private List<Patient> patient;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="Medecin_id")
 	@JsonView(Views.ViewFileAttenteWithMedecin.class)
 	private Medecin medecin;

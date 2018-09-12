@@ -33,7 +33,7 @@ public class Specialite {
 	@JsonView(Views.ViewCommon.class)
 	private Float tarif;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="medecin_id")
 	@JsonView(Views.ViewSpecialite.class)
 	private Medecin medecin;

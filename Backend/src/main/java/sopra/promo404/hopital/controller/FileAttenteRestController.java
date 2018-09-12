@@ -34,7 +34,7 @@ public class FileAttenteRestController {
 	@ResponseBody
 	@JsonView(Views.ViewFileAttente.class)
 	public List<FileAttente> list() {
-		return repoFileAttente.findAll();
+		return repoFileAttente.findAllFileAttente();
 	}
 
 	@GetMapping("/{id}")
