@@ -28,7 +28,7 @@ public class Salle {
 	
 	@JsonView(Views.ViewSalle.class)
 	@OneToMany(mappedBy = "salle", fetch=FetchType.EAGER)
-	private List<Consultation> consulations = new ArrayList<>();
+	private List<Consultation> consultations = new ArrayList<>();
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="medecin_id")
@@ -57,12 +57,12 @@ public class Salle {
 	}
 	
 	
-	public List<Consultation> getConsulations() {
-		return consulations;
+	public List<Consultation> getConsultations() {
+		return consultations;
 	}
 
-	public void setConsulations(List<Consultation> consulations) {
-		this.consulations = consulations;
+	public void setConsulations(List<Consultation> consultations) {
+		this.consultations = consultations;
 	}
 
 	public Medecin getMedecin() {
