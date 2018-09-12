@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,8 +68,10 @@ public class FileAttenteRestController {
 
 	@DeleteMapping("/{id}")
 	@JsonView(Views.ViewSecretaire.class)
-	public void delete(@PathVariable Long id) {
-		repoFileAttente.deleteById(id);
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		repoFileAttente.deleteById(id);	
+		
+		return ResponseEntity.noContent().build();
 	}
 
 }

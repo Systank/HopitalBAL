@@ -12,6 +12,6 @@ public interface IRepoFileAttente extends JpaRepository<FileAttente, Long>{
 	@Query("Select distinct f from FileAttente f left join fetch f.patient left join fetch f.medecin where f.id =:id")
 	FileAttente findFileAttenteByIdWithPatient(@Param("id")Long id);
 	
-	@Query("Select distinct f from FileAttente f left join fetch f.secretaire where f.id =:id")
+	@Query("Select distinct f from FileAttente f left join fetch f.secretaire")
 	List<FileAttente>findAllFileAttente();
 }
