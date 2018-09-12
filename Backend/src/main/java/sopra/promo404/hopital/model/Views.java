@@ -67,5 +67,7 @@ public class Views {
 	
 	public static class ViewFileAttenteWithPatient extends ViewFileAttente {	
 	}
+	
 	public static class ViewFileAttenteWithMedecin extends ViewFileAttente {
+	}
 }
