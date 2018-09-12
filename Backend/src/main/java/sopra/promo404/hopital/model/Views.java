@@ -45,7 +45,7 @@ public class Views {
 	public static class ViewConsultation extends ViewCommon {
 	}
 	
-	public static class ViewConsultationWithSalle extends ViewConsultation {
+	public static class ViewConsultationWithSpecialite extends ViewConsultation {
 	}
 	
 //	

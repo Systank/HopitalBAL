@@ -14,26 +14,35 @@ import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.promo404.hopital.model.Views;
+
 @Entity
 public class Patient {
 	@Id
 	@GeneratedValue
-	@JsonView
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(length=100)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(length=100)
+	@JsonView(Views.ViewCommon.class)
 	private String prénom;
 	@Column(length=20)
+	@JsonView(Views.ViewCommon.class)
 	private String numeroSecuriteSocial;
 	@Column(length=20)
+	@JsonView(Views.ViewCommon.class)
 	private Civilite civilite;
 	@OneToMany(mappedBy="patient", fetch=FetchType.EAGER)
+	@JsonView(Views.ViewPatientWithConsultation.class)
 	private List<Consultation> consultations;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="fileAttente_id")
+	@JsonView(Views.ViewPatient.class)
 	private FileAttente fileAttente;
 	
 	public Patient() {

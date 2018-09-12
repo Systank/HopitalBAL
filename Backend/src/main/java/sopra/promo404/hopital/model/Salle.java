@@ -12,12 +12,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.promo404.hopital.model.Views;
+
 @Entity
 public class Salle {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Column(length=100)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@OneToMany(mappedBy = "salle", fetch=FetchType.EAGER)
 	private List<Consultation> consulations = new ArrayList<>();

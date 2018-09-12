@@ -16,6 +16,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.promo404.hopital.model.Views;
+
 @Entity
 @Table(name = "MEDECIN")
 public class Medecin {
@@ -23,19 +27,23 @@ public class Medecin {
 	@Id
 	@GeneratedValue
 	@Column(name = "medecin_id")
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
 	@Column(length=100)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	
 	@Column(length=100)
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
-	
+	@JsonView(Views.ViewCommon.class)
 	private Boolean carteVitale;
-	
+	@JsonView(Views.ViewCommon.class)
 	private Boolean cmu;
 	
 	@Enumerated(EnumType.STRING)

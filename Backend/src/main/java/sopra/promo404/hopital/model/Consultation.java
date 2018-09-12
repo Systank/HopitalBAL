@@ -11,24 +11,33 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.promo404.hopital.model.Views;
 
 @Entity
 public class Consultation {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dateVisiteArrivee;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dateVisiteFin;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="salle_id")
+	@JsonView(Views.ViewConsultation.class)
 	private Salle salle;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="patient_id")
+	@JsonView(Views.ViewConsultation.class)
 	private Patient patient;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="specialite_id")
+	@JsonView(Views.ViewConsultationWithSpecialite.class)
 	private Specialite specialite;
 	
 	public Consultation() {
